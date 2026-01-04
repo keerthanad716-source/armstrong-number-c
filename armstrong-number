@@ -1,0 +1,34 @@
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    int num, originalNum, remainder;
+    int result = 0, digits = 0;
+
+    printf("Enter a number: ");
+    scanf("%d", &num);
+
+    originalNum = num;
+
+    // count digits
+    while (originalNum != 0) {
+        digits++;
+        originalNum /= 10;
+    }
+
+    originalNum = num;
+
+    // calculate Armstrong value
+    while (originalNum != 0) {
+        remainder = originalNum % 10;
+        result += pow(remainder, digits);
+        originalNum /= 10;
+    }
+
+    if (result == num)
+        printf("%d is an Armstrong Number.\n", num);
+    else
+        printf("%d is NOT an Armstrong Number.\n", num);
+
+    return 0;
+}
